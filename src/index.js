@@ -40,6 +40,12 @@ const setUpandStart = async () => {
             })
         }
 
+    });
+
+    app.get('/home',async(req,res)=>{
+               return res.status(201).json({
+                message:"Ok"
+               });
     })
 
 
@@ -47,7 +53,7 @@ const setUpandStart = async () => {
     app.use('/authService', createProxyMiddleware({ target: 'http://localhost:3009/', changeOrigin: true }))
     app.use('/SearchService', createProxyMiddleware({ target: 'http://localhost:3005/', changeOrigin: true }))
     app.use('/emailRemainderService', createProxyMiddleware({ target: 'http://localhost:3001/', changeOrigin: true }))
-
+     
 
     app.listen(PORT, () => {
         console.log(`Server Started at ${PORT} `);
